@@ -32,7 +32,7 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "node_modules/bootstrap/scss/bootstrap.scss","src/styles.scss"
             ],
             "scripts": []
           },
@@ -91,12 +91,15 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "node_modules/bootstrap/scss/bootstrap.scss","src/styles.scss"
             ],
             "scripts": []
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "c52bd588-f4e7-45ce-9c66-785741ccf1c3"
   }
 }
