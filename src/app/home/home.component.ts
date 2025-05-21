@@ -1,11 +1,35 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-home',
-  standalone: true,
-  imports: [CommonModule],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  providers: [MessageService]
 })
-export class HomeComponent {}
+export class HomeComponent {
+  constructor(
+    private router: Router,
+    private messageService: MessageService,
+    public authService: AuthService
+  ) {}
+
+  navigateToRegister() {
+    this.router.navigate(['/register']);
+  }
+
+  navigateToLogin() {
+    this.router.navigate(['/login']);
+  }
+
+  logout() {
+    this.authService.logout();
+    this.messageService.add({
+      severity: 'success',
+      summary: 'Sesión cerrada',
+      detail: 'Has cerrado sesión correctamente'
+    });
+  }
+}
