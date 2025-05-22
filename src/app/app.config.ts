@@ -1,11 +1,13 @@
-import { ApplicationConfig } from '@angular/core';
+import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { provideHttpClient } from '@angular/common/http'; // Necesario para HttpClient
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // Necesario para formularios
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
-    provideAnimationsAsync()
+    provideHttpClient(), // Provee HttpClient globalmente
+    importProvidersFrom(FormsModule, ReactiveFormsModule) // Importa módulos de formularios
   ]
 };

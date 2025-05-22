@@ -24,12 +24,5 @@ export class HomeComponent {
     this.router.navigate(['/login']);
   }
 
-  logout() {
-    this.authService.logout();
-    this.messageService.add({
-      severity: 'success',
-      summary: 'Sesión cerrada',
-      detail: 'Has cerrado sesión correctamente'
-    });
-  }
+ 
 }
